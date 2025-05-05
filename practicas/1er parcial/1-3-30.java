@@ -19,6 +19,7 @@
 }"""
 
 //VERSION CORREGIDA - DESTRUCTIVA
+//orden n --> no me queda otra que recorrer una lista de n elementos
 public class secondExercise{
     public static void main(String[] args) {
     }
