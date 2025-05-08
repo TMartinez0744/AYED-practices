@@ -6,48 +6,38 @@ import java.util.Scanner;
 
 public class InfixCompleter {
     public static void main(String[] args) {
-        // Stack para guardar los operadores: +, -, *, /
-        Stack<String> ops = new Stack<>();
 
-        // Stack para guardar operandos: números o expresiones parciales
-        Stack<String> vals = new Stack<>();
+        Stack<String> operators = new Stack<>();
+        Stack<String> numbers = new Stack<>();
 
-        // Scanner para leer la entrada estándar (puede ser System.in o entrada redirigida)
+        // Scanner para leer la entrada
         Scanner scanner = new Scanner(System.in);
 
-        // Leemos la entrada token por token (puede ser números, operadores o ")")
+        // Leemos la entrada token por token
         while (scanner.hasNext()) {
-            String token = scanner.next();
+            String element = scanner.next();
 
-            // Si es un operador, lo guardamos en el stack de operadores
-            if (token.equals("+") || token.equals("-") ||
-                    token.equals("*") || token.equals("/")) {
-                ops.push(token);
+            if (element.equals("+") || element.equals("-") ||
+                    element.equals("*") || element.equals("/")) {
+                operators.push(element);
             }
 
-            // Si es un paréntesis derecho, es hora de combinar una subexpresión
-            else if (token.equals(")")) {
+            else if (element.equals(")")) {
                 // Sacamos los dos operandos del stack
-                String val2 = vals.pop(); // el segundo operando (último apilado)
-                String val1 = vals.pop(); // el primero
+                String val2 = numbers.pop(); // el segundo operando (último apilado)
+                String val1 = numbers.pop(); // el primero
 
-                // Sacamos el operador correspondiente
-                String op = ops.pop();
-
-                // Creamos la subexpresión con paréntesis: ( val1 op val2 )
+                String op = operators.pop();
                 String expr = "( " + val1 + " " + op + " " + val2 + " )";
-
-                // Volvemos a apilar esta subexpresión como un valor
-                vals.push(expr);
+                numbers.push(expr);
             }
 
             // Si no es operador ni paréntesis derecho, asumimos que es un número (operando)
             else {
-                vals.push(token);
+                numbers.push(element);
             }
         }
 
-        // Cuando termina el input, en el stack de valores queda la expresión final
-        System.out.println(vals.pop());
+        System.out.println(numbers.pop());
     }
 }
