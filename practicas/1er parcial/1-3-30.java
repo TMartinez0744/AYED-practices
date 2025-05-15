@@ -1,4 +1,5 @@
-//Escribir una función que tomando el primer nodo de una linkedlist como argumento,
+//REVERSED LINKED LIST
+// Escribir una función que tomando el primer nodo de una linkedlist como argumento,
 //revierta todo el orden de los elementos
 //DEBE SER DESTRUCTIVO - CORREGIR!!
 

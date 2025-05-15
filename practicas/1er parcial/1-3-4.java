@@ -1,6 +1,6 @@
 import java.util.NoSuchElementException;
 
-//Implementar una función que dado un input de array de caracteres determine si los paréntesis se
+// Implementar una función que dado un input de array de caracteres determine si los paréntesis se
 //encuentran correctamente balanceados. Por ejemplo, debe  devolver true para “()()” y false para “(()”
 
 //no solo debo chequer que las cantidades sean iguales, sino q sea coherente, osea )( no es correcto
