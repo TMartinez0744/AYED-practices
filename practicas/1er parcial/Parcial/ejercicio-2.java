@@ -14,6 +14,6 @@ public static boolean isPalindrome(char[] input) {
         if (stack.pop() != queue.dequeue()) {
             return false; // No coincide → no es palíndromo
         }
-        return true; // Todos coinciden → es palíndromo
     }
+    return true; // Todos coinciden → es palíndromo
 }
